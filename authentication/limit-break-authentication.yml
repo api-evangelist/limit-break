@@ -1,0 +1,46 @@
+generated: '2026-07-19'
+method: searched
+source: https://apptokens.com/docs/ + skills/permitc-protocol/references/permitc-core.md
+description: Authentication and authorization model for the Apptoken protocol suite. There are no API keys, no OAuth
+  and no bearer tokens — the caller is authenticated by their EVM transaction signature, and delegated authority
+  is granted through EIP-712 signed, time-bound approvals.
+surface: EVM smart contracts
+schemes:
+- id: evm-transaction
+  type: wallet-signature
+  description: The transaction sender (msg.sender) is the authenticated principal; authorization is enforced per-function
+    by the contract.
+- id: eip-712
+  type: signature
+  description: Off-chain typed-data signatures authorize orders that a third party submits on chain — Payment Processor
+    listings and offers, TokenMaster advanced orders, and LBAMM permit swaps.
+  docs:
+  - https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/listings.md
+  - https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/offers.md
+- id: permitc
+  type: delegated-approval
+  description: Time-bound, amount-bound token approvals with nonce management and a lockdown function, used as a
+    safer alternative to ERC-20/721 approvalForAll.
+  address: '0x000000fCE53B6fC312838A002362a9336F7ce39B'
+  docs: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/permits.md
+- id: cosigner
+  type: co-signature
+  description: Orders may require a second signature from a protocol- or exchange-controlled cosigner, allowing
+    off-chain policy enforcement before a fill.
+  docs: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/cosigner-security.md
+- id: trusted-forwarder
+  type: meta-transaction
+  description: Trusted Forwarder sits in front of the protocols to provide web2 app routing, attribution, and optional
+    permissioning.
+  docs: https://apptokens.com/docs/integration-guide/trusted-forwarder/overview.md
+  factory: '0xFF0000B6c4352714cCe809000d0cd30A0E0c8DcE'
+- id: role-based
+  type: on-chain-roles
+  description: Privileged operations are gated by contract roles, e.g. the FEE_MANAGER role that can adjust the
+    Payment Processor protocol fee, and an infrastructure admin multisig for protocol-level bindings.
+api_keys: false
+oauth2: false
+openid_connect: false
+mutual_tls: false
+notes: No apiKey, http, oauth2, openIdConnect or mutualTLS security schemes exist because Limit Break publishes
+  no HTTP API.
