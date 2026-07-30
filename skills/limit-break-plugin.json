@@ -1,0 +1,8 @@
+{
+  "name": "apptokens",
+  "description": "Code generators and protocol knowledge for the Apptoken ecosystem. Generate Solidity contracts, Foundry scripts, and configuration for LBAMM (AMM with hooks), Transfer Validator (transfer policies), Payment Processor (NFT trading), TokenMaster (backed tokens), Wrapped Native (gas-efficient WETH replacement), PermitC (time-bound approvals and gasless transfers), and Creator Token Standards (ERC-20C, ERC-721C, ERC-1155C).",
+  "version": "1.0.0",
+  "author": {
+    "name": "Limit Break"
+  }
+}

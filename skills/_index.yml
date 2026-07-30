@@ -1,0 +1,276 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/limitbreakinc/apptoken-skills
+name: Limit Break Apptoken Agent Skills
+description: Agent Skills published by Limit Break for the Apptoken ecosystem. Saved verbatim from the provider-maintained
+  limitbreakinc/apptoken-skills repository, which is distributed as a Claude Code plugin marketplace ("apptokens").
+  Generator skills emit Solidity contracts and Foundry scripts; knowledge-base skills carry protocol reference material
+  for LBAMM, Transfer Validator, TokenMaster, Payment Processor, Wrapped Native, PermitC and Creator Token Standards.
+publisher: Limit Break Inc.
+plugin:
+  name: apptokens
+  version: 1.0.0
+  manifest: skills/limit-break-plugin.json
+  marketplace: skills/limit-break-marketplace.json
+install:
+- method: skills-cli
+  command: npx skills add limitbreakinc/apptoken-skills
+- method: claude-plugin
+  command: claude plugin marketplace add https://github.com/limitbreakinc/apptoken-skills && claude plugin install
+    apptokens@apptoken-skills
+- method: manual
+  command: git clone https://github.com/limitbreakinc/apptoken-skills.git && claude --plugin-dir /path/to/apptoken-skills
+counts:
+  total: 25
+  generators: 17
+  knowledge_bases: 8
+skills:
+- name: apptoken-designer
+  file: skills/apptoken-designer/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Design an apptoken -- map high-level requirements to protocols, configuration steps, and implementation
+    skills
+  references: []
+- name: apptoken-general
+  file: skills/apptoken-general/SKILL.md
+  type: knowledge-base
+  user_invocable: false
+  description: Apptoken ecosystem knowledge -- token standards (ERC-721C, ERC-1155C, ERC-20C), apptoken categories,
+    cross-protocol integration patterns. Use this skill whenever the user asks about apptokens, Creator Token Standards,
+    ERC-20C/ERC-721C/ERC-1155C, Limit Break tokens, cross-protocol integration, or how the apptoken ecosystem fits
+    together.
+  references:
+  - skills/apptoken-general/references/apptoken-patterns.md
+  - skills/apptoken-general/references/chains.md
+  - skills/apptoken-general/references/ecosystem.md
+  - skills/apptoken-general/references/project-setup.md
+  - skills/apptoken-general/references/token-standards.md
+- name: lbamm-clob
+  file: skills/lbamm-clob/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate integration code for the LBAMM CLOBTransferHandler -- on-chain limit order book with maker
+    deposits, FIFO order filling, and price-linked lists. Generates Foundry scripts for maker flows (deposit, open/close
+    orders, withdraw) and taker flows (filling orders through AMM swaps). Use this skill whenever the user asks
+    about LBAMM CLOB, on-chain order books, limit orders on LBAMM, maker/taker flows, CLOB deposits, or filling
+    CLOB orders.
+  references:
+  - skills/lbamm-clob/references/clob-reference.md
+- name: lbamm-handler-protocol
+  file: skills/lbamm-handler-protocol/SKILL.md
+  type: knowledge-base
+  user_invocable: false
+  description: LBAMM transfer handler architecture -- how transfer handlers work during swap settlement, the ILimitBreakAMMTransferHandler
+    interface, executor validation hooks, callback patterns, and custom handler development. Use this skill whenever
+    the user asks about LBAMM transfer handlers, swap settlement, ammHandleTransfer, custom settlement logic, ITransferHandlerExecutorValidation,
+    how swaps use transfer data, or writing a custom handler contract.
+  references:
+  - skills/lbamm-handler-protocol/references/custom-handler-patterns.md
+  - skills/lbamm-handler-protocol/references/handler-architecture.md
+- name: lbamm-integrator
+  file: skills/lbamm-integrator/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate DEX integration contracts that call LBAMM
+  references:
+  - skills/lbamm-integrator/references/integration-patterns.md
+  - skills/lbamm-integrator/references/liquidity-interface.md
+  - skills/lbamm-integrator/references/swap-interface.md
+- name: lbamm-permit-handler
+  file: skills/lbamm-permit-handler/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate integration code for the LBAMM PermitTransferHandler -- gasless swap execution via EIP-712
+    signed permits with optional cosigner. Generates Foundry scripts, signing code, and transferData encoding for
+    fill-or-kill and partial fill permit swaps.
+  references:
+  - skills/lbamm-permit-handler/references/permit-handler-reference.md
+- name: lbamm-pool
+  file: skills/lbamm-pool/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate pool creation code for Dynamic, Fixed, and Single Provider pools
+  references:
+  - skills/lbamm-pool/references/dynamic-pool.md
+  - skills/lbamm-pool/references/fixed-pool.md
+  - skills/lbamm-pool/references/single-provider-pool.md
+- name: lbamm-pool-hook
+  file: skills/lbamm-pool-hook/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate complete ILimitBreakAMMPoolHook Solidity implementations
+  references:
+  - skills/lbamm-pool-hook/references/pool-hook-interface.md
+  - skills/lbamm-pool-hook/references/pool-hook-patterns.md
+- name: lbamm-position-hook
+  file: skills/lbamm-position-hook/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate complete ILimitBreakAMMLiquidityHook Solidity implementations for per-position liquidity
+    policies
+  references:
+  - skills/lbamm-position-hook/references/position-hook-interface.md
+  - skills/lbamm-position-hook/references/position-hook-patterns.md
+- name: lbamm-protocol
+  file: skills/lbamm-protocol/SKILL.md
+  type: knowledge-base
+  user_invocable: false
+  description: LBAMM protocol background knowledge -- architecture, interfaces, pool types, hooks, fees, and execution
+    model. Use this skill whenever the user asks about LBAMM, Limit Break AMM, AMM hooks, swap mechanics, liquidity
+    pools, pool types, token hooks, pool hooks, or any Solidity code that imports from @limitbreak/lbamm-core.
+  references:
+  - skills/lbamm-protocol/references/core-api.md
+  - skills/lbamm-protocol/references/core-interfaces.md
+  - skills/lbamm-protocol/references/events-errors.md
+  - skills/lbamm-protocol/references/execution-model.md
+  - skills/lbamm-protocol/references/fee-system.md
+  - skills/lbamm-protocol/references/hook-system.md
+  - skills/lbamm-protocol/references/local-dev.md
+  - skills/lbamm-protocol/references/pool-types.md
+- name: lbamm-standard-hook
+  file: skills/lbamm-standard-hook/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Configure AMM Standard Hook via Creator Hook Settings Registry
+  references:
+  - skills/lbamm-standard-hook/references/standard-hook-api.md
+  - skills/lbamm-standard-hook/references/standard-hook-configs.md
+- name: lbamm-test
+  file: skills/lbamm-test/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate Foundry test suites following LBAMM test patterns
+  references:
+  - skills/lbamm-test/references/test-infrastructure.md
+  - skills/lbamm-test/references/test-patterns.md
+- name: lbamm-token-hook
+  file: skills/lbamm-token-hook/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate complete ILimitBreakAMMTokenHook Solidity implementations
+  references:
+  - skills/lbamm-token-hook/references/token-hook-interface.md
+  - skills/lbamm-token-hook/references/token-hook-patterns.md
+- name: payment-processor-creator
+  file: skills/payment-processor-creator/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate Payment Processor V3 creator configuration for NFT marketplace settings -- payment methods,
+    pricing constraints, royalties, trusted channels. Use when setting up an ERC-721 or ERC-1155 collection for
+    trading.
+  references:
+  - skills/payment-processor-creator/references/creator-patterns.md
+  - skills/payment-processor-creator/references/payment-settings.md
+- name: payment-processor-exchange
+  file: skills/payment-processor-exchange/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate NFT marketplace exchange integration code using Payment Processor V3 -- order signing, listing
+    and buying NFTs, accepting offers, calldata encoding, filling, sweeping collections, cancellation, PermitC.
+    Use for any ERC-721 or ERC-1155 buy/sell/trade flow.
+  references:
+  - skills/payment-processor-exchange/references/order-filling.md
+  - skills/payment-processor-exchange/references/order-signing.md
+  - skills/payment-processor-exchange/references/permitc-integration.md
+- name: payment-processor-protocol
+  file: skills/payment-processor-protocol/SKILL.md
+  type: knowledge-base
+  user_invocable: false
+  description: Payment Processor V3 background knowledge -- the NFT marketplace protocol for buying, selling, and
+    trading ERC-721 and ERC-1155 tokens. Covers architecture, data structures, fee model, events. Use this skill
+    whenever the user asks about NFT trading, NFT marketplaces, buying or selling NFTs, listing NFTs for sale, making
+    offers on NFTs, sweeping collections, royalty enforcement, EIP-712 order signing, creator payment settings,
+    or any code referencing Payment Processor at 0x9a1D00000000fC540e2000560054812452eB5366. Payment Processor is
+    the marketplace layer for NFTs -- LBAMM and CLOB are for ERC-20C fungible tokens, not NFTs.
+  references:
+  - skills/payment-processor-protocol/references/data-structures.md
+  - skills/payment-processor-protocol/references/fee-model.md
+- name: permitc-protocol
+  file: skills/permitc-protocol/SKILL.md
+  type: knowledge-base
+  user_invocable: false
+  description: PermitC protocol knowledge -- time-bound token approvals, signature-based transfers, order fills,
+    nonce management, and EIP-712 signing. Use this skill whenever the user asks about PermitC, permit transfers,
+    time-bound approvals, gasless token transfers, signature-based token approvals, permit nonces, lockdown, or
+    any Solidity code that imports from @permitC or references PermitC/IPermitC.
+  references:
+  - skills/permitc-protocol/references/permitc-core.md
+- name: tokenmaster-deployer
+  file: skills/tokenmaster-deployer/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate TokenMaster token deployment scripts -- pool type selection, parameter construction, deterministic
+    addressing
+  references:
+  - skills/tokenmaster-deployer/references/deployment-workflow.md
+  - skills/tokenmaster-deployer/references/pool-configuration.md
+- name: tokenmaster-hook
+  file: skills/tokenmaster-hook/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate TokenMaster hook contracts -- buy hooks, sell hooks, spend hooks for advanced order post-execution
+    logic
+  references:
+  - skills/tokenmaster-hook/references/hook-interfaces.md
+  - skills/tokenmaster-hook/references/hook-patterns.md
+- name: tokenmaster-integrator
+  file: skills/tokenmaster-integrator/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate TokenMaster transaction integration code -- buy/sell/spend flows, advanced orders, EIP-712
+    signing, oracles
+  references:
+  - skills/tokenmaster-integrator/references/advanced-orders.md
+  - skills/tokenmaster-integrator/references/transaction-flows.md
+- name: tokenmaster-protocol
+  file: skills/tokenmaster-protocol/SKILL.md
+  type: knowledge-base
+  user_invocable: false
+  description: TokenMaster background knowledge -- architecture, data structures, pool types, fee distribution,
+    events. Use this skill whenever the user asks about TokenMaster, backed tokens, bonding curves, token pools
+    (Standard/Stable/Promotional), buy/sell/spend flows, or any code referencing the TokenMaster Router at 0x0E00009d00d1000069ed00A908e00081F5006008.
+  references:
+  - skills/tokenmaster-protocol/references/data-structures.md
+  - skills/tokenmaster-protocol/references/events.md
+  - skills/tokenmaster-protocol/references/pool-types.md
+- name: transfer-validator-config
+  file: skills/transfer-validator-config/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate Transfer Validator V5 configuration scripts -- rulesets, lists, whitelisting, account freezing
+    for Apptoken collections
+  references:
+  - skills/transfer-validator-config/references/collection-config.md
+  - skills/transfer-validator-config/references/config-patterns.md
+- name: transfer-validator-protocol
+  file: skills/transfer-validator-protocol/SKILL.md
+  type: knowledge-base
+  user_invocable: false
+  description: Transfer Validator V5 background knowledge -- modular rulesets, list management, validation logic,
+    security configurations. Use this skill whenever the user asks about transfer validation, operator whitelists,
+    blacklists, soulbound tokens, OTC transfer rules, account freezing, or any code referencing the Transfer Validator
+    at 0x721C008fdff27BF06E7E123956E2Fe03B63342e3.
+  references:
+  - skills/transfer-validator-protocol/references/list-management.md
+  - skills/transfer-validator-protocol/references/ruleset-system.md
+- name: wrapped-native-integrator
+  file: skills/wrapped-native-integrator/SKILL.md
+  type: generator
+  user_invocable: true
+  description: Generate Solidity contracts and scripts that integrate with Wrapped Native (WNATIVE)
+  references:
+  - skills/wrapped-native-integrator/references/integration-patterns.md
+- name: wrapped-native-protocol
+  file: skills/wrapped-native-protocol/SKILL.md
+  type: knowledge-base
+  user_invocable: false
+  description: Wrapped Native (WNATIVE) protocol background knowledge -- architecture, interfaces, permits, gas
+    benchmarks, and integration patterns. Use this skill whenever the user asks about Wrapped Native, WNATIVE, WETH
+    replacement, native token wrapping, payable approve/transfer, depositTo, withdrawSplit, permitted withdrawals,
+    gasless transfers, or any Solidity code that imports IWrappedNative or IWrappedNativeExtended, or references
+    the address 0x6000030000842044000077551D00cfc6b4005900.
+  references:
+  - skills/wrapped-native-protocol/references/api.md
+  - skills/wrapped-native-protocol/references/benchmarks.md
+  - skills/wrapped-native-protocol/references/permit-system.md

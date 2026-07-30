@@ -1,0 +1,67 @@
+generated: '2026-07-19'
+method: searched
+source: https://apptokens.com/docs/
+description: 'Versioning and deprecation posture for the Apptoken protocol suite. Because these are immutable on-chain
+  contracts, versioning is by side-by-side deployment: a new major version is deployed to new addresses and prior
+  versions keep running. Docs are kept per-version rather than replaced.'
+versioning:
+  scheme: semver-major per protocol, expressed as separately deployed contract versions
+  in_url: true
+  note: Docs are namespaced per version, e.g. /docs/integration-guide/payment-processor/v3.0/ and .../v2.0/.
+  products:
+  - product: Creator Token Standards / Transfer Validator
+    current: V5
+    released: '2025-05-05'
+    prior_versions:
+    - V4
+    - V3
+    - V2
+    changelog: https://apptokens.com/docs/integration-guide/creator-token-standards/v5/new-features.md
+    deployments: https://apptokens.com/docs/integration-guide/creator-token-standards/v5/contract-deployments.md
+  - product: Payment Processor
+    current: V3.0
+    released: '2024-11-19'
+    prior_versions:
+    - V2.0
+    - V1
+    changelog: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/changelog.md
+    deployments: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/deployments.md
+  - product: TokenMaster
+    current: v1
+    deployments: https://apptokens.com/docs/integration-guide/token-master/deployments.md
+  - product: Limit Break AMM (LBAMM)
+    current: public review release
+    status: not production-ready
+    evidence: https://github.com/limitbreakinc/lbamm-core README — audit/review snapshot, not licensed for mainnet
+      deployment.
+  - product: Wrapped Native
+    current: v1
+    docs: https://apptokens.com/docs/integration-guide/wrapped-native/overview.md
+deprecation:
+  policy_published: true
+  style: side-by-side contract versions; older versions remain deployed and functional
+  observed:
+  - item: Transfer security levels (V2-V4)
+    replaced_by: Modular rulesets (Vanilla, Soulbound, Blacklist, Whitelist) in V5
+    source: https://apptokens.com/docs/integration-guide/creator-token-standards/v5/new-features.md
+  - item: Domain separator in Payment Processor trading calldata
+    removed_in: V3.0
+    note: Now read from a cached immutable; integrators must use the v3.0.0 PaymentProcessorEncoder.
+    source: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/changelog.md
+  - item: Banned-accounts feature in Payment Processor
+    removed_in: V3.0
+    note: Moved into core Creator Token Standards so it persists across marketplace versions.
+  - item: '@limitbreak/creator-token-contracts (npm)'
+    replaced_by: '@limitbreak/creator-token-standards'
+  - item: Payment Processor V2.0 known limitations
+    documented_at: https://apptokens.com/docs/integration-guide/payment-processor/v2.0/limitations.md
+  sunset_header: false
+  note: RFC 8594 Sunset/Deprecation headers are not applicable — there is no HTTP API surface.
+migration_support:
+  protocol_fee_versioning: Payment Processor V3.0 introduced a protocol fee versioning system with fee-version grace
+    periods so orders are not instantly invalidated and exchange integrators have built-in time to integrate new
+    versions.
+  source: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/changelog.md
+status_page: null
+sla: null
+notes: No public status page and no SLA — the protocols run on public EVM chains rather than Limit Break infrastructure.

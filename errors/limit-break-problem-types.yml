@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://apptokens.com/docs/ + skills/lbamm-protocol/references/events-errors.md
+description: Error model for the Apptoken protocol suite. Errors are Solidity custom errors raised by reverting
+  transactions, not HTTP problem documents — format is not rfc9457 because there is no HTTP surface. Limit Break
+  publishes a per-protocol error reference for integrators.
+format: solidity-custom-errors
+transport: EVM revert with a 4-byte error selector and ABI-encoded params
+references:
+- protocol: Limit Break AMM
+  url: https://apptokens.com/docs/integration-guide/limit-break-amm/reference/errors
+  artifact: skills/lbamm-protocol/references/events-errors.md
+- protocol: Payment Processor
+  url: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/glossary.md
+- protocol: Creator Token Standards
+  url: https://apptokens.com/docs/integration-guide/creator-token-standards/v4/for-exchanges/transfer-validation.md
+  note: Documents the actions and notifications for each situation in which a transfer will be restricted.
+families:
+- family: transfer-validation
+  description: Transfer blocked by the Transfer Validator — ruleset denial, operator not whitelisted, blacklisted
+    operator, soulbound token, receiver constraint, or frozen account.
+  remediation: Check the collection ruleset binding and list membership; use the V5 transfer validation simulation
+    functions to test a transfer before submitting it.
+- family: order-validation
+  description: Signed order rejected — expired order, consumed or cancelled nonce, bad EIP-712 signature, cosignature
+    mismatch, or maker/taker mismatch.
+  remediation: Re-sign with a fresh nonce; confirm the domain separator and the version-matched encoder are correct.
+- family: payment-settings
+  description: Trade rejected by creator payment settings — disallowed payment method, price outside the collection
+    or token pricing constraints, or untrusted channel.
+  remediation: Read the collection settings from the settings registry before quoting a price.
+- family: permit
+  description: PermitC failure — expired permit, exhausted permit amount, consumed permit nonce, or lockdown in
+    effect.
+  remediation: Issue a new time-bound permit, or fall back to approvalForAll.
+- family: hook-revert
+  description: A pool, position, token, buy, sell or spend hook reverted and rolled back the transaction.
+  remediation: Inspect the hook contract; Limit Break publishes a "Writing Safe Hooks" guide for hook authors.
+- family: liquidity
+  description: LBAMM swap or liquidity operation failed — insufficient liquidity, slippage bound exceeded, or position
+    policy enforcement.
+  remediation: Widen slippage tolerance or re-route; check position policy enforcement rules.
+notes: Family groupings are derived from the published per-protocol references and the provider's own skill reference
+  files. Individual error selectors are not enumerated here — consult the linked protocol error references for the
+  authoritative list.

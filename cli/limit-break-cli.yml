@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/limitbreakinc/apptoken-dev + https://github.com/limitbreakinc/apptoken-skills
+description: Limit Break does not ship a general-purpose branded CLI binary. What it does publish is shell-script
+  tooling that stands up a complete local Apptoken chain, plus CLI-installable agent skills. Day-to-day contract
+  work is done through Foundry (forge/cast/anvil), which Limit Break documents as the supported toolchain.
+first_party_binary: false
+tools:
+- name: apptoken-dev local-environment
+  type: shell scripts
+  repository: https://github.com/limitbreakinc/apptoken-dev
+  install: git clone https://github.com/limitbreakinc/apptoken-dev.git
+  requires:
+  - foundry (anvil, cast)
+  - screen
+  commands:
+  - command: ./script/start.sh
+    description: Launch a detached Anvil node on port 8545 (chain id 1776411), deploy the CREATE2 factory, then
+      run bootstrap.sh to deploy all Apptoken infrastructure in dependency order.
+  - command: ./script/stop.sh
+    description: Tear down the Anvil screen session and free port 8545.
+  - command: screen -r anvil
+    description: Attach to the running Anvil console.
+- name: skills CLI (agent skills install)
+  type: npx
+  install: npx skills add limitbreakinc/apptoken-skills
+  description: Installs Limit Break's 25 published Apptoken agent skills.
+- name: claude plugin marketplace
+  type: claude
+  install: claude plugin marketplace add https://github.com/limitbreakinc/apptoken-skills && claude plugin install
+    apptokens@apptoken-skills
+  description: Installs the same skills as the "apptokens" Claude Code plugin.
+upstream_toolchain:
+  name: Foundry
+  url: https://book.getfoundry.sh/
+  note: forge install / forge build / forge test are the documented workflow for every Limit Break contract repo.

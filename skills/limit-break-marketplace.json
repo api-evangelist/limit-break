@@ -1,0 +1,60 @@
+{
+  "name": "apptoken-skills",
+  "owner": {
+    "name": "Limit Break",
+    "url": "https://github.com/limitbreakinc"
+  },
+  "plugins": [
+    {
+      "name": "apptokens",
+      "source": {
+        "source": "github",
+        "repo": "limitbreakinc/apptoken-skills"
+      },
+      "description": "Code generators and protocol knowledge for the Apptoken ecosystem. Generate Solidity contracts, Foundry scripts, and configuration for LBAMM, Transfer Validator, Payment Processor, TokenMaster, Wrapped Native, PermitC, and Creator Token Standards.",
+      "category": "smart-contracts",
+      "tags": [
+        "solidity",
+        "ethereum",
+        "evm",
+        "foundry",
+        "amm",
+        "dex",
+        "nft",
+        "erc20",
+        "erc721",
+        "erc1155",
+        "erc20c",
+        "erc721c",
+        "erc1155c",
+        "creator-tokens",
+        "apptokens",
+        "limit-break",
+        "lbamm",
+        "tokenmaster",
+        "payment-processor",
+        "transfer-validator",
+        "hooks",
+        "swap",
+        "liquidity",
+        "royalties",
+        "bonding-curve",
+        "backed-tokens",
+        "eip-712",
+        "permit",
+        "wrapped-native",
+        "weth",
+        "wnative",
+        "trusted-forwarder",
+        "token-economics",
+        "onchain-gaming",
+        "creator-economy",
+        "clob",
+        "order-book",
+        "limit-order",
+        "gasless",
+        "permitc"
+      ]
+    }
+  ]
+}

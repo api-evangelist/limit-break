@@ -1,0 +1,57 @@
+generated: '2026-07-19'
+method: probed
+source: live probe of https://apptokens.com and https://limitbreak.com
+description: No .well-known artifacts are published. apptokens.com is a Docusaurus site that returns a soft 404
+  (HTTP 200 with the "Page Not Found" HTML shell) for every probed path, so none of these are real documents. limitbreak.com
+  is behind bot protection and returns 403 to automated requests.
+probes:
+- host: apptokens.com
+  path: /.well-known/security.txt
+  status: 200
+  file: null
+  result: soft-404 (Docusaurus HTML shell, not a real document)
+- host: apptokens.com
+  path: /.well-known/openid-configuration
+  status: 200
+  file: null
+  result: soft-404 (Docusaurus HTML shell, not a real document)
+- host: apptokens.com
+  path: /.well-known/oauth-authorization-server
+  status: 200
+  file: null
+  result: soft-404 (Docusaurus HTML shell, not a real document)
+- host: apptokens.com
+  path: /.well-known/api-catalog
+  status: 200
+  file: null
+  result: soft-404 (Docusaurus HTML shell, not a real document)
+- host: apptokens.com
+  path: /.well-known/ai-plugin.json
+  status: 200
+  file: null
+  result: soft-404 (Docusaurus HTML shell, not a real document)
+- host: limitbreak.com
+  path: /.well-known/security.txt
+  status: 403
+  file: null
+  result: blocked by bot protection
+- host: limitbreak.com
+  path: /.well-known/openid-configuration
+  status: 403
+  file: null
+  result: blocked by bot protection
+- host: limitbreak.com
+  path: /.well-known/oauth-authorization-server
+  status: 403
+  file: null
+  result: blocked by bot protection
+- host: limitbreak.com
+  path: /.well-known/api-catalog
+  status: 403
+  file: null
+  result: blocked by bot protection
+- host: limitbreak.com
+  path: /.well-known/ai-plugin.json
+  status: 403
+  file: null
+  result: blocked by bot protection

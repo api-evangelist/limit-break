@@ -1,0 +1,69 @@
+generated: '2026-07-19'
+method: derived
+source: skills/ (limitbreakinc/apptoken-skills) + https://apptokens.com/docs/
+description: Cross-cutting integration semantics for the Apptoken protocol suite. These are on-chain contract conventions,
+  not HTTP API conventions — there is no REST surface, so the usual pagination / rate-limit / request-id axes have
+  on-chain analogues or do not apply.
+surface: EVM smart contracts (Solidity), not HTTP
+authentication:
+  style: EVM transaction signing (msg.sender) plus EIP-712 typed-data signatures for off-chain authorization
+  delegated_authorization: PermitC — time-bound, signature-based token approvals as an alternative to approvalForAll
+  permitc_address: '0x000000fCE53B6fC312838A002362a9336F7ce39B'
+  cosigning: Payment Processor and TokenMaster support cosigned orders; cosigner key management is documented per
+    protocol.
+  meta_transactions: Trusted Forwarder provides attribution and optional permissioning in front of the protocols.
+  see_also: authentication/limit-break-authentication.yml
+idempotency:
+  supported: true
+  mechanism: EIP-712 order nonces
+  description: Every signed order carries a nonce. Replaying a signature whose nonce is already consumed reverts,
+    so order submission is effectively idempotent per nonce. Nonces may also be cancelled on chain without filling,
+    which invalidates the order.
+  docs:
+  - https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/nonce-management.md
+  - https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/cancelling-orders.md
+  scope: per maker address, per protocol instance
+  retention: permanent — consumed nonces are recorded on chain for the life of the contract
+  guidance: Efficient nonce management is documented as the way to prevent collisions and lower gas costs.
+batching:
+  supported: true
+  mechanism: Bulk order signing
+  limit: up to 1024 individual orders under a single maker signature (Payment Processor V3.0)
+  docs: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/bulk-orders.md
+pagination:
+  applicable: false
+  note: No collection endpoints; list state is read via on-chain view functions and indexed from events.
+rate_limiting:
+  applicable: false
+  note: Throughput is bounded by EVM gas and block space, not by a provider rate limiter.
+request_tracing:
+  mechanism: transaction hash + emitted events
+  note: Every protocol publishes an events reference specifically so exchanges and indexers can trace and reconstruct
+    state.
+  docs:
+  - https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/events.md
+  - https://apptokens.com/docs/integration-guide/token-master/Router/events.md
+  - https://apptokens.com/docs/integration-guide/creator-token-standards/v4/for-exchanges/events.md
+versioning:
+  style: side-by-side deployed contract versions at distinct addresses; docs namespaced per version
+  see_also: lifecycle/limit-break-lifecycle.yml
+error_envelope:
+  style: Solidity custom errors (revert with typed error selector)
+  note: Not RFC 9457 problem+json — there is no HTTP response envelope.
+  see_also: errors/limit-break-problem-types.yml
+calldata_encoding:
+  note: Payment Processor trading calldata must be produced by the version-matched encoder contract off chain before
+    submission; the V3.0.0 PaymentProcessorEncoder is required for V3.0 compatibility.
+  docs: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/calldata-encoding.md
+extensibility:
+  mechanism: hooks
+  description: LBAMM exposes pool hooks, position hooks and token hooks; TokenMaster exposes buy/sell/spend hooks;
+    Transfer Validator exposes modular rulesets. Hook call order and context is documented.
+  docs:
+  - https://apptokens.com/docs/integration-guide/limit-break-amm/hooks/hook-call-order-context
+  - https://apptokens.com/docs/integration-guide/limit-break-amm/hooks/writing-safe-hooks
+  - https://apptokens.com/docs/integration-guide/token-master/Router/hooks.md
+deterministic_deployment:
+  mechanism: CREATE2
+  note: Protocols deploy permissionlessly to identical addresses on every EVM chain, so integrators can hardcode
+    addresses cross-chain.

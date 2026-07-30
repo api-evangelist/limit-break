@@ -1,0 +1,198 @@
+# Apptokens Documentation
+
+Infinitely programmable token smart contracts for next-generation digital economies.
+
+- [Cookbook](https://apptokens.com/docs/cookbook.md): Cookbook including potential usecases for Creator Token Standards and TokenMaster protocols
+
+## Creator Token Standards
+
+- [Overview](https://apptokens.com/docs/integration-guide/creator-token-standards/overview.md): Overview of the creator token standards
+
+### V5
+
+- [Changelog](https://apptokens.com/docs/integration-guide/creator-token-standards/v5/new-features.md): Description of changes for Creator Token Standards V5
+- [Contract Deployments](https://apptokens.com/docs/integration-guide/creator-token-standards/v5/contract-deployments.md): Deployment addresses for V5 contracts
+
+### V4
+
+- [Changelog](https://apptokens.com/docs/integration-guide/creator-token-standards/v4/changelog.md): Description of changes for Creator Token Standards V4
+- [Contract Deployments](https://apptokens.com/docs/integration-guide/creator-token-standards/v4/contract-deployments.md): Deployment addresses for V4 contracts
+
+#### For Creators
+
+- [Transfer Security](https://apptokens.com/docs/integration-guide/creator-token-standards/v4/for-creators/transfer-security.md): Description and information on Transfer Security Levels and Lists for v4
+- [Example Contracts](https://apptokens.com/docs/integration-guide/creator-token-standards/v4/for-creators/token-examples.md): Example implementations of creator token standards v4.
+
+#### For Exchanges
+
+- [Events](https://apptokens.com/docs/integration-guide/creator-token-standards/v4/for-exchanges/events.md): Events emitted by creator token standard contracts, used for building indexers
+- [Transfer Validation](https://apptokens.com/docs/integration-guide/creator-token-standards/v4/for-exchanges/transfer-validation.md): Actions and notifications for different situations where transfers will be restricted
+- [EOA Verification](https://apptokens.com/docs/integration-guide/creator-token-standards/v4/for-exchanges/eoa-verification.md): Implementation details on the EOARegistry contract
+
+### V3
+
+- [Contract Deployments](https://apptokens.com/docs/integration-guide/creator-token-standards/v3/contract-deployments.md): Deployment addresses for V3 contracts
+
+#### For Creators
+
+- [Transfer Security](https://apptokens.com/docs/integration-guide/creator-token-standards/v3/for-creators/transfer-security.md): Description and information on Transfer Security Levels and Lists for V3
+- [Example Contracts](https://apptokens.com/docs/integration-guide/creator-token-standards/v3/for-creators/token-examples.md): Example implementations of creator token standards V3
+
+#### For Exchanges
+
+- [Events](https://apptokens.com/docs/integration-guide/creator-token-standards/v3/for-exchanges/events.md): Events emitted by creator token standard contracts, used for building indexers
+- [Transfer Validation](https://apptokens.com/docs/integration-guide/creator-token-standards/v3/for-exchanges/transfer-validation.md): Actions and notifications for different situations where transfers will be restricted
+- [EOA Verification](https://apptokens.com/docs/integration-guide/creator-token-standards/v3/for-exchanges/eoa-verification.md): Implementation details on the EOARegistry contract
+
+### V2
+
+- [Contract Deployments](https://apptokens.com/docs/integration-guide/creator-token-standards/v2/contract-deployments.md): Deployment addresses for V2 contracts
+
+#### For Creators
+- [Transfer Security](https://apptokens.com/docs/integration-guide/creator-token-standards/v2/for-creators/transfer-security.md): Description and information on Transfer Security Levels and Lists for V2
+- [Example Contracts](https://apptokens.com/docs/integration-guide/creator-token-standards/v2/for-creators/token-examples.md): Example implementations of creator token standards V2
+
+#### For Exchanges
+
+- [Events](https://apptokens.com/docs/integration-guide/creator-token-standards/v2/for-exchanges/events.md): Events emitted by creator token standard contracts, used for building indexers
+- [Transfer Validation](https://apptokens.com/docs/integration-guide/creator-token-standards/v2/for-exchanges/transfer-validation.md): Actions and notifications for different situations where transfers will be restricted
+- [EOA Verification](https://apptokens.com/docs/integration-guide/creator-token-standards/v2/for-exchanges/eoa-verification.md): Implementation details on the EOARegistry contract
+
+## Payment Processor
+
+- [Overview](https://apptokens.com/docs/integration-guide/payment-processor/overview.md): Overview of the Payment Processor and it's capabilities / differentiations from other NFT Marketplace contracts
+
+### V3.0
+
+- [Changelog](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/changelog.md): Description of changes for Payment Processor V3.0
+- [Contract Deployments](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/deployments.md): Deployment addresses for Payment Processor V3.0 contracts
+
+#### For Creators
+
+- [Settings Registry](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-creators/payment-settings.md): Central registry contract for managing settings
+
+#### For Exchanges
+
+- [Glossary](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/glossary.md): Glossary of terms related to the Payment Processor
+- [Events](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/events.md): Events emitted by the Payment Processor V3.0
+- [Data Structures](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/data-structures.md): Data structures used while interacting with the Payment Processor V3.0
+- [Listings](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/listings.md): Directions on creating listings signatures
+- [Offers](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/offers.md): Directions on creating offer signatures
+- [Filling Orders](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/filling-orders.md): Directions on filling orders
+- [Cancelling Orders](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/cancelling-orders.md): Directions on cancelling orders on chain
+- [Consigner Security](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/cosigner-security.md): Instructions on securely managing a cosigner
+- [Calldata Encoding](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/calldata-encoding.md): How to utilize the calldata encoder contract offchain before submitting transactions
+- [Bulk Orders](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/bulk-orders.md): How to handle bulk orders
+- [Permits](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/permits.md): How to process orders using PermitC or the Creator Token Transfer Validator
+- [Nonce Management](https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/nonce-management.md): Efficient nonce management for preventing collisions and lower gas costs
+
+### V2.0
+
+- [Contract Deployments](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/deployments.md): Deployment addresses for Payment Processor V2.0
+- [Limitations](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/limitations.md): Known limitations for Payment Processor V2.0
+
+#### For Creators
+
+- [Payment Settings](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-creators/payment-settings.md): Instructions on how to handle setting and managing payment settings
+- [Calldata Encoding](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-creators/calldata-encoding.md): How to utilize the calldata encoder contract offchain before submitting transactions
+
+#### For Exchanges
+
+- [Glossary](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/glossary.md): Glossary of terms related to the Payment Processor
+- [Events](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/events.md): Events emitted by the Payment Processor V3.0
+- [Data Structures](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/data-structures.md): Data structures used while interacting with the Payment Processor V3.0
+- [Listings](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/listings.md): Directions on creating listings signatures
+- [Offers](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/offers.md): Directions on creating offer signatures
+- [Filling Orders](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/filling-orders.md): Directions on filling orders
+- [Cancelling Orders](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/cancelling-orders.md): Directions on cancelling orders on chain
+- [Consigner Security](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/cosigner-security.md): Instructions on securely managing a cosigner
+- [Calldata Encoding](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/calldata-encoding.md): How to utilize the calldata encoder contract offchain before submitting transactions
+- [Nonce Management](https://apptokens.com/docs/integration-guide/payment-processor/v2.0/for-exchanges/nonce-management.md): Efficient nonce management for preventing collisions and lower gas costs
+
+## TokenMaster
+
+- [Overview](https://apptokens.com/docs/integration-guide/token-master/overview.md): Overview of the TokenMaster protocol
+- [Contract Deployments](https://apptokens.com/docs/integration-guide/token-master/deployments.md): Contract deployment addresses for TokenMaster
+
+### Router
+
+- [TokenMaster Router](https://apptokens.com/docs/integration-guide/token-master/Router/router.md): TokenMaster router is the primary hub for all TokenMaster transactions allowing creators to control all aspects of their token lifecycle
+- [Token Deployments](https://apptokens.com/docs/integration-guide/token-master/Router/token-deployment.md): The deployment process involves selecting the desired token type, configuring deployment parameters, and leveraging deterministic address computation for predictability
+- [Token Transactions](https://apptokens.com/docs/integration-guide/token-master/Router/transactions.md): Flows for buying, selling and spending tokens via the TokenMaster Router
+- [Advanced Order Signing](https://apptokens.com/docs/integration-guide/token-master/Router/advanced-orders.md): Advanced orders for custom logic triggered by different order types
+- [Hooks](https://apptokens.com/docs/integration-guide/token-master/Router/hooks.md): Overview of custom smart contract hooks for custom logic and extensibility
+- [Oracles](https://apptokens.com/docs/integration-guide/token-master/Router/oracles.md): Oracles in TokenMaster allow dynamic adjustment of transaction values by referencing external data, such as market conditions or token price feeds
+- [Data Types](https://apptokens.com/docs/integration-guide/token-master/Router/datatypes.md): Data types used when interacting with the TokenMaster Router contract
+- [Functions](https://apptokens.com/docs/integration-guide/token-master/Router/functions.md): Function definitions on the TokenMaster Router
+- [Events](https://apptokens.com/docs/integration-guide/token-master/Router/events.md): Events emitted by the TokenMaster Router
+
+### Pools
+
+- [TokenMaster Pools](https://apptokens.com/docs/integration-guide/token-master/Pools/tokenmaster-pools.md): Overview of the types of TokenMaster pools
+- [Standard Pool](https://apptokens.com/docs/integration-guide/token-master/Pools/standard-pool.md): Standard Pool definition and flows
+- [Stable Pool](https://apptokens.com/docs/integration-guide/token-master/Pools/stable-pool.md): Stable Pool definition and flows
+- [Promotional Pool](https://apptokens.com/docs/integration-guide/token-master/Pools/promotional-pool.md): Promotional Pool definition and flows
+
+## Trusted Forwarder
+
+- [Overview](https://apptokens.com/docs/integration-guide/trusted-forwarder/overview.md): Overview of the usage and use cases for the Trusted Forwarder contract
+- [Deployment](https://apptokens.com/docs/integration-guide/trusted-forwarder/deployment.md): Deployment instructions for new Trusted Forwarder instances
+- [Management](https://apptokens.com/docs/integration-guide/trusted-forwarder/management.md): Instructions to manage deployed Trusted Forwarders
+- [Usage](https://apptokens.com/docs/integration-guide/trusted-forwarder/usage.md): Intended usage for Trusted Forwarders
+- [Contract Deployments](https://apptokens.com/docs/integration-guide/trusted-forwarder/contract-deployments.md): Contract deployment addresses for Trusted Forwarder infrastructure
+
+## Wrapped Native
+
+- [Overview](https://apptokens.com/docs/integration-guide/wrapped-native/overview.md): Overview of the Wrapped Native WETH9 replacement contract
+- [Usage](https://apptokens.com/docs/integration-guide/wrapped-native/usage.md): Usage instuctions for Wrapped Native
+- [Gas Benchmarks](https://apptokens.com/docs/integration-guide/wrapped-native/benchmarks.md): Gas benchmarking against WETH9 comparable functions
+
+## Limit Break AMM
+
+- [Introduction](https://apptokens.com/docs/integration-guide/limit-break-amm/intro): Introduction to the Limit Break AMM.
+- [Audience](https://apptokens.com/docs/integration-guide/limit-break-amm/intro/audience): Guidance for audiences that are reading technical docs.
+- [Concepts & Terminology](https://apptokens.com/docs/integration-guide/limit-break-amm/intro/concepts-terminology): Concepts and terminology used through the docs.
+- [Design Goals & Guarantees](https://apptokens.com/docs/integration-guide/limit-break-amm/intro/design-goals-guarantees): Specific design goals and guarantees presented by the AMM.
+- [Pool Hooks](https://apptokens.com/docs/integration-guide/limit-break-amm/hooks/hook-types/pool-hooks): Guide to implementing pool hooks.
+- [Position Hooks](https://apptokens.com/docs/integration-guide/limit-break-amm/hooks/hook-types/position-hooks): Guide to implementing position hooks.
+- [Token Hooks](https://apptokens.com/docs/integration-guide/limit-break-amm/hooks/hook-types/token-hooks): Guide to implementing token hooks.
+- [AMM Standard Hook](https://apptokens.com/docs/integration-guide/limit-break-amm/hooks/amm-standard-token-hook): Usage instructions for the AMM Standard Token Hook.
+- [Hook Call Order & Context](https://apptokens.com/docs/integration-guide/limit-break-amm/hooks/hook-call-order-context): Ordering of hook calls in execution.
+- [Hooks](https://apptokens.com/docs/integration-guide/limit-break-amm/hooks): Overview of hooks in the Limit Break AMM.
+- [Writing Safe Hooks](https://apptokens.com/docs/integration-guide/limit-break-amm/hooks/writing-safe-hooks): Guides to writing safe hooks.
+- [Custom Pool Types](https://apptokens.com/docs/integration-guide/limit-break-amm/pools/custom-pool-types): Guide to implementing custom pool types.
+- [Pools](https://apptokens.com/docs/integration-guide/limit-break-amm/pools): Overview of pools in the Limit Break AMM.
+- [Mixing Pool Types In Routes](https://apptokens.com/docs/integration-guide/limit-break-amm/pools/mixing-pool-types-in-routes): Overview of how different pool types can execute in routes.
+- [Pool Abstraction](https://apptokens.com/docs/integration-guide/limit-break-amm/pools/pool-abstraction): Overview of how pool types are abstracted in the Limit Break AMM.
+- [Dynamic Price Pool](https://apptokens.com/docs/integration-guide/limit-break-amm/pools/pool-types/dynamic-price-pool): Overview of the Dynamic Price Pool Type.
+- [Fixed Price Pool](https://apptokens.com/docs/integration-guide/limit-break-amm/pools/pool-types/fixed-price-pool): Overview of the Fixed Price Pool Type.
+- [Single Provider Pool](https://apptokens.com/docs/integration-guide/limit-break-amm/pools/pool-types/single-provider-pool): Overview of the Single Provider Pool Type.
+- [Adding & Removing Liquidity](https://apptokens.com/docs/integration-guide/limit-break-amm/liquidity/adding-removing-liquidity): Guide for adding and removing liquidity.
+- [Liquidity](https://apptokens.com/docs/integration-guide/limit-break-amm/liquidity): Overview of liquidity in the Limit Break AMM.
+- [Position Policy Enforcement](https://apptokens.com/docs/integration-guide/limit-break-amm/liquidity/position-policy-enforcement): How policy positions are enforced.
+- [Direct Swaps](https://apptokens.com/docs/integration-guide/limit-break-amm/orders/direct-swaps): Guide to executing direct swaps between parties.
+- [Executors & Solvers](https://apptokens.com/docs/integration-guide/limit-break-amm/orders/executors-solvers): Guide for executors and solvers to route order flow.
+- [Future EIP7702](https://apptokens.com/docs/integration-guide/limit-break-amm/orders/future-eip7702): How account abstraction like EIP7702 can be utilized to improve executions.
+- [Orders](https://apptokens.com/docs/integration-guide/limit-break-amm/orders): Overview of orders in the Limit Break AMM.
+- [Pool Swaps](https://apptokens.com/docs/integration-guide/limit-break-amm/orders/pool-swaps): Guide to executing swaps through pools.
+- [ CLOB Transfer Handler](https://apptokens.com/docs/integration-guide/limit-break-amm/orders/transfer-handlers/clob-transfer-handler): Overview of the CLOB Transfer Handler for order settlement.
+- [Custom Transfer Handlers](https://apptokens.com/docs/integration-guide/limit-break-amm/orders/transfer-handlers/custom-transfer-handlers): Guide to building custom transfer handlers.
+- [Transfer Handlers](https://apptokens.com/docs/integration-guide/limit-break-amm/orders/transfer-handlers): Overview of transfer handlers in the Limit Break AMM.
+- [Permit Transfer Handler](https://apptokens.com/docs/integration-guide/limit-break-amm/orders/transfer-handlers/permit-transfer-handler): Overview of the Permit Transfer Handler for order settlement.
+- [Economic Design Patterns](https://apptokens.com/docs/integration-guide/limit-break-amm/fees-economics/economic-design-patterns): Design patterns that may be used for fees.
+- [Fee Ordering Settlement](https://apptokens.com/docs/integration-guide/limit-break-amm/fees-economics/fee-ordering-settlement): Ordering guide for how fees are applied.
+- [Fee Surfaces](https://apptokens.com/docs/integration-guide/limit-break-amm/fees-economics/fee-surfaces): Overview of the different types of fees that may apply in the Limit Break AMM.
+- [Fees Economics](https://apptokens.com/docs/integration-guide/limit-break-amm/fees-economics): Overview of fees and economics in the Limit Break AMM.
+- [Create a Pool](https://apptokens.com/docs/integration-guide/limit-break-amm/integration-guides/create-a-pool): Integration guide for creating a pool.
+- [Execute Swaps](https://apptokens.com/docs/integration-guide/limit-break-amm/integration-guides/execute-swaps): Integration guide for executing swaps.
+- [Foundry Setup](https://apptokens.com/docs/integration-guide/limit-break-amm/integration-guides/foundry-setup): Integration guide for installing the Limit Break AMM code with Foundry.
+- [IntegrationGuides](https://apptokens.com/docs/integration-guide/limit-break-amm/integration-guides): Overview page for integration guides.
+- [Manage Liquidity](https://apptokens.com/docs/integration-guide/limit-break-amm/integration-guides/manage-liquidity): Integration guide for managing liquidity.
+- [Submit Signed Orders](https://apptokens.com/docs/integration-guide/limit-break-amm/integration-guides/submit-signed-orders): Integration guide for submitting signed orders with the Permit Transfer Handler.
+- [Contract Registry](https://apptokens.com/docs/integration-guide/limit-break-amm/reference/contract-registry): Registry of deployed contract addresses.
+- [Core Interfaces](https://apptokens.com/docs/integration-guide/limit-break-amm/reference/core-interfaces): Links to public repositories for the Limit Break AMM protocol code.
+- [Errors](https://apptokens.com/docs/integration-guide/limit-break-amm/reference/errors): Core AMM error reference.
+- [Events](https://apptokens.com/docs/integration-guide/limit-break-amm/reference/events): Core AMM event reference.
+- [Reference](https://apptokens.com/docs/integration-guide/limit-break-amm/reference): Overview of the reference materials.
+- [Protocol Fundamentals](https://apptokens.com/docs/integration-guide/limit-break-amm/protocol-fundamentals): Fundamental concepts in the Limit Break AMM.
+- [Security Model](https://apptokens.com/docs/integration-guide/limit-break-amm/security-model): Security model for the Limit Break AMM.

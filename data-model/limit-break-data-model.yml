@@ -1,0 +1,153 @@
+generated: '2026-07-19'
+method: derived
+source: https://apptokens.com/docs/ + skills/*/references/ (limitbreakinc/apptoken-skills)
+description: Entity graph for the Apptoken protocol suite, derived from the published data-structure and interface
+  references. Entities are on-chain contracts and structs rather than JSON resources, and identity is an EVM address
+  or a struct hash rather than a prefixed string id.
+identity_scheme: EVM addresses (20-byte) for contracts and accounts; EIP-712 struct hashes for orders and permits
+entities:
+- name: CreatorToken
+  description: An ERC-721C, ERC-1155C or ERC-20C token contract inheriting Limit Break base contracts.
+  relationships:
+  - type: belongs_to
+    target: TransferValidator
+    via: transferValidator
+  - type: has_one
+    target: CollectionSettings
+    via: collection address
+- name: TransferValidator
+  description: On-chain registry enforcing which operators may move a token, via modular rulesets and lists. V5
+    at 0x721C008fdff27BF06E7E123956E2Fe03B63342e3.
+  relationships:
+  - type: has_many
+    target: Ruleset
+    via: rulesetId
+  - type: has_many
+    target: List
+    via: listId
+  - type: has_one
+    target: EOARegistry
+    via: eoaRegistry
+- name: Ruleset
+  description: Read-only validation module bound to a Ruleset Id 0-254. Ships as Vanilla, Soulbound, Blacklist,
+    Whitelist.
+  relationships:
+  - type: belongs_to
+    target: TransferValidator
+    via: rulesetId
+- name: List
+  description: Whitelist / blacklist membership set of operators and receivers, applied by a ruleset.
+  relationships:
+  - type: belongs_to
+    target: TransferValidator
+    via: listId
+  - type: has_many
+    target: CreatorToken
+    via: applied collections
+- name: EOARegistry
+  description: Registry proving an address is an externally owned account. 0xE0A0004Dfa318fc38298aE81a666710eaDCEba5C.
+- name: PaymentProcessor
+  description: NFT marketplace contract enforcing royalties and creator payment settings. V3 at 0x9a1D00000000fC540e2000560054812452eB5366.
+  relationships:
+  - type: has_many
+    target: Order
+    via: order digest
+  - type: has_one
+    target: CollectionSettings
+    via: settings registry
+  - type: belongs_to
+    target: TransferValidator
+    via: transfer validation on fill
+- name: Order
+  description: A signed listing, offer or bulk order. Carries a maker, nonce, expiry, price and payment method;
+    identified by its EIP-712 digest.
+  relationships:
+  - type: belongs_to
+    target: PaymentProcessor
+    via: domain separator
+  - type: has_one
+    target: Cosignature
+    via: cosigner
+  - type: has_one
+    target: Permit
+    via: permitc approval
+- name: CollectionSettings
+  description: Creator-controlled per-collection payment settings — allowed payment methods, pricing constraints,
+    royalty backfill, trusted channels. Lazy-loaded from the settings registry on first trade.
+  relationships:
+  - type: belongs_to
+    target: CreatorToken
+    via: collection address
+- name: Permit
+  description: A PermitC time-bound, amount-bound token approval identified by owner, token, nonce and expiry.
+  relationships:
+  - type: belongs_to
+    target: PermitC
+    via: nonce
+- name: PermitC
+  description: Time-bound approval and signature-transfer contract shared by Payment Processor, LBAMM and TokenMaster.
+    0x000000fCE53B6fC312838A002362a9336F7ce39B.
+- name: TokenMasterRouter
+  description: Primary hub for TokenMaster token deployment and buy/sell/spend transactions. 0x0E00009d00d1000069ed00A908e00081F5006008.
+  relationships:
+  - type: has_many
+    target: TokenMasterPool
+    via: pool factory
+  - type: has_many
+    target: Hook
+    via: buy/sell/spend hooks
+  - type: has_many
+    target: Oracle
+    via: oracle
+- name: TokenMasterPool
+  description: A Standard, Stable or Promotional pool that is simultaneously the token and its backing pool, paired
+    with an existing token.
+  relationships:
+  - type: belongs_to
+    target: TokenMasterRouter
+    via: router
+  - type: has_one
+    target: CreatorToken
+    via: ERC-20C token
+- name: Oracle
+  description: External data source that dynamically adjusts TokenMaster transaction values.
+  relationships:
+  - type: belongs_to
+    target: TokenMasterRouter
+    via: oracle
+- name: LBAMMPool
+  description: A Dynamic Price, Fixed Price or Single Provider pool in the Limit Break AMM.
+  relationships:
+  - type: has_many
+    target: Position
+    via: liquidity provider
+  - type: has_many
+    target: Hook
+    via: pool/position/token hooks
+- name: Position
+  description: A liquidity position in an LBAMM pool, subject to position policy enforcement.
+  relationships:
+  - type: belongs_to
+    target: LBAMMPool
+    via: poolId
+- name: Hook
+  description: Pluggable contract implementing ILimitBreakAMMPoolHook, ILimitBreakAMMLiquidityHook, ILimitBreakAMMTokenHook,
+    or a TokenMaster buy/sell/spend hook.
+- name: TransferHandler
+  description: LBAMM settlement strategy implementing ILimitBreakAMMTransferHandler — PermitTransferHandler for
+    gasless swaps, CLOBTransferHandler for the on-chain limit order book.
+  relationships:
+  - type: belongs_to
+    target: LBAMMPool
+    via: swap settlement
+- name: WrappedNative
+  description: Gas-efficient WETH9 replacement with payable approve/transfer, depositTo, withdrawSplit and permit.
+    0x6000030000842044000077551D00cfc6b4005900.
+- name: TrustedForwarder
+  description: Attribution and permissioning layer deployed per app in front of the protocols. Factory 0xFF0000B6c4352714cCe809000d0cd30A0E0c8DcE.
+references:
+- https://apptokens.com/docs/integration-guide/payment-processor/v3.0/for-exchanges/data-structures.md
+- https://apptokens.com/docs/integration-guide/token-master/Router/datatypes.md
+- https://apptokens.com/docs/integration-guide/limit-break-amm/reference/core-interfaces
+notes: Derived from published docs and the provider's own skill reference files; no OpenAPI exists to derive $ref
+  links from.

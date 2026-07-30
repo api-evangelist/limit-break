@@ -1,0 +1,59 @@
+generated: '2026-07-19'
+method: probed
+source: live TLS/HTTP/DNS probe
+description: Domain security posture probed for the Limit Break corporate site and the Apptokens documentation host.
+  Absence of a record is recorded as observed data, not as an error.
+hosts:
+- host: limitbreak.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb 16 17:22:00 2027 GMT
+  cert_issuer: GoDaddy.com, Inc.
+  http_status: 403
+  hsts: true
+  hsts_header: max-age=31536000; includeSubDomains; preload
+  dnssec: true
+  caa:
+  - 0 issue "godaddy.com"
+  - 0 issue "letsencrypt.org"
+  - 0 iodef "mailto:security@limitbreak.com"
+  - 0 issue "amazon.com"
+  - 0 issue "cloudflare.com"
+  - 0 issue "digitrust.com"
+  spf:
+  - '"v=spf1 include:secureserver.net include:_spf.google.com ~all"'
+  dmarc:
+  - '"v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-reports-limitbreak@limitbreak.com"'
+- host: apptokens.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 17 02:22:08 2026 GMT
+  cert_issuer: Google Trust Services
+  http_status: 200
+  hsts: true
+  hsts_header: max-age=31536000; includeSubDomains; preload
+  dnssec: false
+  caa:
+  - 0 issue "amazon.com"
+  - 0 issue "cloudflare.com"
+  - 0 issue "comodoca.com"
+  - 0 issue "digicert.com; cansignhttpexchanges=yes"
+  - 0 issue "letsencrypt.org"
+  - 0 issue "pki.goog; cansignhttpexchanges=yes"
+  - 0 issue "ssl.com"
+  - 0 issuewild "amazon.com amazontrust.com awstrust.com amazonaws.com"
+  - 0 issuewild "amazon.com"
+  - 0 issuewild "amazonaws.com"
+  - 0 issuewild "amazontrust.com"
+  - 0 issuewild "awstrust.com"
+  - 0 issuewild "cloudflare.com"
+  - 0 issuewild "comodoca.com"
+  - 0 issuewild "digicert.com; cansignhttpexchanges=yes"
+  - 0 issuewild "letsencrypt.org"
+  - 0 issuewild "pki.goog; cansignhttpexchanges=yes"
+  - 0 issuewild "ssl.com"
+  - 0 iodef "mailto:security@limitbreak.com"
+  spf:
+  - '"v=spf1 -all"'
+  dmarc:
+  - '"v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-reports-apptokens@limitbreak.com"'

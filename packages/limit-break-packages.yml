@@ -1,0 +1,65 @@
+generated: '2026-07-19'
+method: searched
+source: https://registry.npmjs.org/ + https://github.com/limitbreakinc
+name: Limit Break Packages
+description: First-party distributable libraries published by Limit Break. The primary distribution channel for
+  the Apptoken protocol suite is Solidity source consumed via Foundry (forge install) from the limitbreakinc GitHub
+  organization; npm packages exist for the contract libraries so Hardhat projects can import them.
+registries:
+- registry: npm
+  name: '@limitbreak/creator-token-standards'
+  official: true
+  version: 5.0.0
+  license: MIT
+  published: '2025-05-05'
+  url: https://www.npmjs.com/package/@limitbreak/creator-token-standards
+  repository: https://github.com/limitbreakinc/npm-creator-token-standards
+  install: npm install --save @limitbreak/creator-token-standards
+  description: ERC-721C / ERC-1155C / ERC-20C creator token standards and mix-ins.
+- registry: npm
+  name: '@limitbreak/creator-token-contracts'
+  official: true
+  version: 1.1.2
+  license: MIT
+  published: '2023-06-16'
+  url: https://www.npmjs.com/package/@limitbreak/creator-token-contracts
+  repository: https://github.com/limitbreakinc/creator-token-contracts
+  install: npm install --save @limitbreak/creator-token-contracts
+  description: Predecessor royalty-protection mix-ins. Superseded by @limitbreak/creator-token-standards.
+  status: superseded
+foundry:
+- name: creator-token-standards
+  official: true
+  install: forge install limitbreakinc/creator-token-standards
+  repository: https://github.com/limitbreakinc/creator-token-standards
+  remapping: '@limitbreak/creator-token-standards/=lib/creator-token-standards/'
+- name: lbamm-core
+  official: true
+  install: forge install limitbreakinc/lbamm-core
+  repository: https://github.com/limitbreakinc/lbamm-core
+  note: Public review / audit-competition release; not licensed for production deployment.
+- name: PermitC
+  official: true
+  repository: https://github.com/limitbreakinc/PermitC
+- name: payment-processor-v2
+  official: true
+  repository: https://github.com/limitbreakinc/payment-processor-v2
+- name: wrapped-native
+  official: true
+  repository: https://github.com/limitbreakinc/wrapped-native
+- name: TrustedForwarder
+  official: true
+  repository: https://github.com/limitbreakinc/TrustedForwarder
+- name: secure-proxy
+  official: true
+  repository: https://github.com/limitbreakinc/secure-proxy
+not_found:
+- registry: npm
+  name: '@limitbreak/permitc'
+  status: 404
+- registry: npm
+  name: '@limitbreak/payment-processor'
+  status: 404
+notes: No first-party PyPI, Maven Central, NuGet, RubyGems, Packagist, crates.io or pkg.go.dev packages were found.
+  npm scope search for scope:limitbreak returned no additional results; the two npm packages above were resolved
+  by direct registry lookup.

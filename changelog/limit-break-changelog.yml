@@ -1,0 +1,59 @@
+generated: '2026-07-19'
+method: searched
+source: https://apptokens.com/docs/
+description: Dated, per-protocol changelogs published in the Apptokens integration guide. Each major protocol version
+  keeps its own changelog page rather than a single site-wide feed; recent window captured below.
+scheme: per-protocol semver, documented as versioned changelog pages
+feeds:
+- product: Creator Token Standards
+  url: https://apptokens.com/docs/integration-guide/creator-token-standards/v5/new-features.md
+- product: Creator Token Standards
+  url: https://apptokens.com/docs/integration-guide/creator-token-standards/v4/changelog.md
+- product: Payment Processor
+  url: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/changelog.md
+entries:
+- product: Creator Token Standards / Transfer Validator
+  version: 5.0.0
+  date: '2025-05-05'
+  breaking: true
+  highlights:
+  - Replaced monolithic transfer security levels with modular, read-only Rulesets (Vanilla, Soulbound, Blacklist,
+    Whitelist).
+  - Ruleset registration with a code-purity check that rejects any module containing state-changing opcodes.
+  - Ruleset binding to Ruleset Ids 0-254; Id 0 is the validator default (currently Whitelist).
+  - Automatic updates so creators do not need to migrate when new EIPs land.
+  - EIP-7702 OTC option and smart-wallet OTC option to preserve wallet-to-wallet transfers.
+  - Enhanced AMM compatibility for apptokens; default list extension; whitelist extension contracts.
+  - Expansion lists and expansion settings; global and ruleset options.
+  - Transfer validation simulation functions.
+  source: https://apptokens.com/docs/integration-guide/creator-token-standards/v5/new-features.md
+- product: Payment Processor
+  version: 3.0.0
+  date: '2024-11-19'
+  breaking: true
+  additions:
+  - Permissionless deployment by any wallet on any EVM chain.
+  - Wrapped Native added as a default payment method.
+  - Bulk order signing — up to 1024 orders under a single maker signature.
+  - PermitC integration as an alternative to approvalForAll for listings and bid acceptance.
+  - Royalty backfill as a primary royalty source.
+  - Creator settings lazy loading from a settings registry on first trade per collection.
+  - Tstorish reentrancy guard, removing native push-payment gas limits and enabling direct native refunds.
+  - Mutable protocol fee under a FEE_MANAGER role, with a fee-version grace period system.
+  - New ProtocolFeesUpdated event for exchanges to track fee changes.
+  interface_changes:
+  - Domain separator removed from all trading calldata — now read from a cached immutable. Use the v3.0.0 PaymentProcessorEncoder.
+  - Calldata format changed for all trading functions.
+  - Added a collection-level-only Pricing Constraints payment type.
+  - Removed the banned-accounts feature (moved to core Creator Token Standards).
+  - Order digest for partial fills changed.
+  defaults: 0.25% minimum protocol fee, 15% tax on exchange fees, 25% tax on fee-on-top (adjustable post-deployment).
+  source: https://apptokens.com/docs/integration-guide/payment-processor/v3.0/changelog.md
+- product: Creator Token Standards / Transfer Validator
+  version: 4.0.0
+  date: '2024-11-19'
+  breaking: true
+  highlights:
+  - Permissionless deployment of the Creator Token Transfer Validator by any wallet on any EVM chain.
+  - Changed collateral required for pausable PermitC flags — 0.33 ETH on mainnet, 0.01 native on other chains.
+  source: https://apptokens.com/docs/integration-guide/creator-token-standards/v4/changelog.md

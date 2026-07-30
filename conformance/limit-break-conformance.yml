@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: searched
+source: https://apptokens.com/docs/ + https://github.com/limitbreakinc/apptoken-skills
+description: Standards Limit Break's Apptoken protocol suite conforms to. These are Ethereum/EVM token and signature
+  standards rather than HTTP API standards — Limit Break ships on-chain protocols, not a REST API, so the usual
+  web-API conformance axes (OAuth 2.0, OpenID Connect, RFC 9457, OData, SCIM) do not apply.
+conformance:
+- id: erc-721
+  conforms: true
+  evidence: ERC721C / ERC721AC base contracts are backwards-compatible ERC-721 implementations. https://apptokens.com/docs/integration-guide/creator-token-standards/overview.md
+- id: erc-1155
+  conforms: true
+  evidence: ERC1155C base contract is a backwards-compatible ERC-1155 implementation.
+- id: erc-20
+  conforms: true
+  evidence: ERC20C base contract is a backwards-compatible ERC-20 implementation; TokenMaster builds on ERC-20C.
+- id: erc-165
+  conforms: true
+  evidence: TokenMaster pools expose ERC-165 interface detection. https://apptokens.com/docs/integration-guide/token-master/Pools/tokenmaster-pools.md
+- id: erc-2981
+  conforms: true
+  evidence: Payment Processor queries ERC-2981 royaltyInfo, with a royalty-backfill fallback for collections that
+    do not implement it. Payment Processor V3.0 changelog.
+- id: eip-712
+  conforms: true
+  evidence: Typed structured-data signing is used for Payment Processor listings/offers, TokenMaster advanced orders,
+    PermitC permits and the LBAMM PermitTransferHandler.
+- id: eip-2612
+  conforms: true
+  evidence: Wrapped Native implements a permit system. https://apptokens.com/docs/integration-guide/wrapped-native/overview.md
+- id: eip-1167
+  conforms: true
+  evidence: Creator Token Standards ships Initializable variants intended for EIP-1167 minimal proxies (clones).
+    creator-token-standards README.
+- id: eip-1967
+  conforms: true
+  evidence: secure-proxy is an ERC-1967 proxy implementation with security pausing built in. https://github.com/limitbreakinc/secure-proxy
+- id: eip-7702
+  conforms: true
+  evidence: Transfer Validator V5 adds an EIP-7702 OTC option and smart-wallet OTC option. Creator Token Standards
+    V5 changelog.
+- id: create2
+  conforms: true
+  evidence: Deterministic CREATE2 addressing for permissionless, cross-chain-identical deployment of Payment Processor,
+    Wrapped Native and TokenMaster tokens.
+- id: oauth2
+  conforms: false
+  evidence: No HTTP API and no OAuth surface published.
+- id: oidc
+  conforms: false
+  evidence: No HTTP API and no OpenID Connect surface published.
+- id: rfc9457
+  conforms: false
+  evidence: No HTTP API; errors are Solidity custom errors, not problem+json.

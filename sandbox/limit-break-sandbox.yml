@@ -1,0 +1,44 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/limitbreakinc/apptoken-dev/blob/main/local-environment/README.md
+description: Limit Break publishes a self-contained local development chain rather than a hosted sandbox or testnet.
+  The local environment boots an Anvil node and deploys the full Apptoken contract stack at the same deterministic
+  addresses used in production, so integration code needs no address rewiring between local and mainnet.
+style: local ephemeral chain (no hosted sandbox, no shared testnet)
+hosted_sandbox: false
+environment:
+  name: Apptoken local-environment
+  repository: https://github.com/limitbreakinc/apptoken-dev
+  rpc_endpoint: http://localhost:8545
+  chain_id: 1776411
+  node: Anvil (Foundry)
+  start: ./script/start.sh
+  stop: ./script/stop.sh
+  prerequisites:
+  - Foundry (anvil, cast) — curl -L https://foundry.paradigm.xyz | bash && foundryup
+  - screen
+deployed_contracts:
+- name: Wrapped Native
+  description: WETH-equivalent for the local chain.
+- name: Creator Token Standards (CTS)
+  description: Transfer Validator V4/V5, EOA Registry, and the vanilla, blacklist, whitelist and soulbound rulesets.
+- name: Payment Processor
+  description: Payment Processor, encoder, collection settings, trusted forwarder, and marketplace modules (accept
+    offers, buy listings, sweeps, on-chain cancellation).
+- name: TokenMaster
+  description: Router, standard and stable pool factories, and promotional pool.
+- name: Infrastructure Admin Multisig
+  description: Multisig used to configure protocol-level permissions and bindings.
+deterministic_addresses: true
+deterministic_note: All contracts are deployed to the same deterministic addresses used in production, via a CREATE2
+  factory.
+test_credentials: null
+test_credentials_note: No test API keys, test cards or hosted test tokens exist — authentication is EVM wallet signatures,
+  and Anvil supplies its own local development accounts.
+examples:
+- name: lbamm-examples
+  url: https://github.com/limitbreakinc/lbamm-examples
+  description: Local environment with examples for the Limit Break AMM.
+- name: tm-tokenmaster-examples
+  url: https://github.com/limitbreakinc/tm-tokenmaster-examples
+  description: Example repo for TokenMaster deployment, oracles, and buy/sell/spend hooks.
