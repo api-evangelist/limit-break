@@ -1,22 +1,52 @@
 aid: limit-break
 name: Limit Break
-description: 'Limit Break is a company surfaced as a portfolio company of paradigm and added to the API
-  Evangelist network as a stub for enrichment. Sector: gaming. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: Limit Break Inc. is a gaming and onchain-economy company that builds the Apptoken protocol suite — a
+  family of permissionlessly deployable EVM smart contract protocols for programmable digital economies. Its Creator
+  Token Standards (ERC-20C, ERC-721C, ERC-1155C) route every transfer through an on-chain Transfer Validator so creators
+  can bind modular rulesets, operator whitelists and blacklists without changing their token contract. Around that
+  foundation Limit Break ships Payment Processor for royalty-enforced NFT trading, TokenMaster for backed fungible
+  tokens with pool-based buy/sell/spend flows, the Limit Break AMM with a multi-tier hook system, PermitC for time-bound
+  token approvals, Wrapped Native as a gas-efficient WETH9 replacement, and Trusted Forwarder for application attribution.
+  Integration is documented at apptokens.com, distributed as Solidity via Foundry and npm, and supported by 25 first-party
+  AI agent skills. Limit Break is backed by Paradigm.
 url: https://raw.githubusercontent.com/api-evangelist/limit-break/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://apptokens.com/img/social-card.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - paradigm
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Gaming
+- Blockchain
+- Smart Contracts
+- Ethereum
+- EVM
+- Tokens
+- NFT
+- DeFi
+- Creator Economy
+- Solidity
+- Agent Skills
 apis: []
+x-apis-note: Limit Break publishes no HTTP/REST API. Its integration surface is on-chain EVM smart contracts, so there
+  is no OpenAPI, no baseURL and no API-key or OAuth surface. Every artifact below is therefore repo-wide in common[]
+  rather than scoped to an apis[] entry.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +55,58 @@ maintainers:
 common:
 - type: Website
   url: https://limitbreak.com
+- type: DeveloperPortal
+  url: https://apptokens.com/
+- type: Documentation
+  url: https://apptokens.com/docs/integration-guide/overview
+- type: APIReference
+  url: https://apptokens.com/docs/category/integration-guide
+- type: GettingStarted
+  url: https://apptokens.com/docs/integration-guide/creator-token-standards/overview
+- type: GitHubOrganization
+  url: https://github.com/limitbreakinc
+- type: SourceCode
+  url: https://github.com/limitbreakinc/creator-token-standards
+- type: SignUp
+  url: https://apptokens.com/testnet-signup/
+- type: LLMsTxt
+  url: llms/limit-break-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Packages
+  url: packages/limit-break-packages.yml
+- type: SDKs
+  url: packages/limit-break-packages.yml
+- type: CLI
+  url: cli/limit-break-cli.yml
+- type: Sandbox
+  url: sandbox/limit-break-sandbox.yml
+- type: Conventions
+  url: conventions/limit-break-conventions.yml
+- type: Idempotency
+  url: conventions/limit-break-conventions.yml
+- type: ErrorCatalog
+  url: errors/limit-break-problem-types.yml
+- type: DataModel
+  url: data-model/limit-break-data-model.yml
+- type: Authentication
+  url: authentication/limit-break-authentication.yml
+- type: Lifecycle
+  url: lifecycle/limit-break-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/limit-break-lifecycle.yml
+- type: ChangeLog
+  url: changelog/limit-break-changelog.yml
+- type: Conformance
+  url: conformance/limit-break-conformance.yml
+- type: DomainSecurity
+  url: security/limit-break-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/limit-break-vulnerability-disclosure.yml
+- type: Security
+  url: security/limit-break-vulnerability-disclosure.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
