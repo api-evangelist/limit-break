@@ -10,6 +10,19 @@ description: Limit Break Inc. is a gaming and onchain-economy company that build
   Integration is documented at apptokens.com, distributed as Solidity via Foundry and npm, and supported by 25 first-party
   AI agent skills. Limit Break is backed by Paradigm.
 url: https://raw.githubusercontent.com/api-evangelist/limit-break/refs/heads/main/apis.yml
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
