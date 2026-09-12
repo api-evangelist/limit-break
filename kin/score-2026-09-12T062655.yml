@@ -1,28 +1,29 @@
-# Kin Score artifact — limit-break — 2026-08-12T193225
+# Kin Score artifact — limit-break — 2026-09-12T062655
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: limit-break
-  schema_version: 0.11.0
-  scored_at: '2026-08-12'
-  run_ts: 2026-08-12T193225
-  composite: 29.4
+  schema_version: 0.21.0
+  scored_at: '2026-09-12'
+  run_ts: 2026-09-12T062655
+  composite: 31.5
   band: thin
   facets:
     discoverability: 57.4
     contract_quality: 0.0
-    governance: 12.5
-    operational_transparency: 39.5
-    developer_ergonomics: 71.7
-    commercial_clarity: 13.2
+    contract_governance: 18.2
+    operational_transparency: 36.8
+    developer_ergonomics: 78.6
+    access_clarity: 13.2
   agent_readiness:
-    score: 21.2
+    score: 12.2
     band: agent-aware
     dimensions:
       spec_presence: false
       agentic_access: false
+      reversibility_documented: false
       mcp_server: false
-      auth_clarity: true
+      auth_clarity: bearer
       idempotency: documented
       error_semantics: documented
       openapi_examples: false
@@ -33,6 +34,13 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
+  open_source:
+    applies: true
+    score: 35.0
   provenance:
     skills: first-party
     conformance: first-party
