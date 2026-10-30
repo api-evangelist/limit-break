@@ -64,6 +64,117 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Limit Break is a company surfaced as a portfolio company of paradigm and added to the API Evangelist network as a stub for enrichment. Sector: gaming. This profile is a lead awaiting the enrichment pipeline.
+Limit Break Inc. is a gaming and onchain-economy company that builds the Apptoken protocol suite — a family of permissionlessly deployable EVM smart contract protocols for programmable digital economies. Its Creator Token Standards (ERC-20C, ERC-721C, ERC-1155C) route every transfer through an on-chain Transfer Validator so creators can bind modular rulesets, operator whitelists and blacklists without changing their token contract. Around that foundation Limit Break ships Payment Processor for royalty-enforced NFT trading, TokenMaster for backed fungible tokens with pool-based buy/sell/spend flows, the Limit Break AMM with a multi-tier hook system, PermitC for time-bound token approvals, Wrapped Native as a gas-efficient WETH9 replacement, and Trusted Forwarder for application attribution. Integration is documented at apptokens.com, distributed as Solidity via Foundry and npm, and supported by 25 first-party AI agent skills. Limit Break is backed by Paradigm.
 
-Backed by: paradigm — https://limitbreak.com
+**Areas:** Company · Gaming · Blockchain · Smart Contracts · Ethereum · EVM · Tokens · NFT · DeFi · Creator Economy · Solidity · Agent Skills
+
+## Limit Break on APIs.io
+
+Everything profiled for Limit Break is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/limit-break/](https://apis.io/providers/limit-break/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agent skills (25)
+
+Agent skills built on the API.
+
+- [apptoken-designer](https://apis.io/agent-skills/limit-break/apptoken-designer/)
+- [apptoken-general](https://apis.io/agent-skills/limit-break/apptoken-general/)
+- [lbamm-clob](https://apis.io/agent-skills/limit-break/lbamm-clob/)
+- [lbamm-handler-protocol](https://apis.io/agent-skills/limit-break/lbamm-handler-protocol/)
+- [lbamm-integrator](https://apis.io/agent-skills/limit-break/lbamm-integrator/)
+- [lbamm-permit-handler](https://apis.io/agent-skills/limit-break/lbamm-permit-handler/)
+- [lbamm-pool](https://apis.io/agent-skills/limit-break/lbamm-pool/)
+- [lbamm-pool-hook](https://apis.io/agent-skills/limit-break/lbamm-pool-hook/)
+- [lbamm-position-hook](https://apis.io/agent-skills/limit-break/lbamm-position-hook/)
+- [lbamm-protocol](https://apis.io/agent-skills/limit-break/lbamm-protocol/)
+- [lbamm-standard-hook](https://apis.io/agent-skills/limit-break/lbamm-standard-hook/)
+- [lbamm-test](https://apis.io/agent-skills/limit-break/lbamm-test/)
+- [lbamm-token-hook](https://apis.io/agent-skills/limit-break/lbamm-token-hook/)
+- [payment-processor-creator](https://apis.io/agent-skills/limit-break/payment-processor-creator/)
+- [payment-processor-exchange](https://apis.io/agent-skills/limit-break/payment-processor-exchange/)
+- [payment-processor-protocol](https://apis.io/agent-skills/limit-break/payment-processor-protocol/)
+- [permitc-protocol](https://apis.io/agent-skills/limit-break/permitc-protocol/)
+- [tokenmaster-deployer](https://apis.io/agent-skills/limit-break/tokenmaster-deployer/)
+- [tokenmaster-hook](https://apis.io/agent-skills/limit-break/tokenmaster-hook/)
+- [tokenmaster-integrator](https://apis.io/agent-skills/limit-break/tokenmaster-integrator/)
+- [tokenmaster-protocol](https://apis.io/agent-skills/limit-break/tokenmaster-protocol/)
+- [transfer-validator-config](https://apis.io/agent-skills/limit-break/transfer-validator-config/)
+- [transfer-validator-protocol](https://apis.io/agent-skills/limit-break/transfer-validator-protocol/)
+- [wrapped-native-integrator](https://apis.io/agent-skills/limit-break/wrapped-native-integrator/)
+- [wrapped-native-protocol](https://apis.io/agent-skills/limit-break/wrapped-native-protocol/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Limit Break Authentication](https://apis.io/security/limit-break/limit-break-authentication/)
+- [Limit Break Domain Security](https://apis.io/security/limit-break/limit-break-domain-security/)
+- [Limit Break Vulnerability Disclosure](https://apis.io/security/limit-break/limit-break-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://limitbreak.com)
+- [Documentation](https://apptokens.com/docs/integration-guide/overview)
+- [Getting started](https://apptokens.com/docs/integration-guide/creator-token-standards/overview)
+- [API reference](https://apptokens.com/docs/category/integration-guide)
+- [Sign up](https://apptokens.com/testnet-signup/)
+- [Blog](https://limitbreak.com/blog/)
+- [GitHub](https://github.com/limitbreakinc)
+
+## API Evangelist rating
+
+**Kin Score 32.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 81.0 |
+| Access clarity | 13.2 |
+
+**Agent readiness 9.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | derived (partial credit) |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/limit-break/](https://apis.io/providers/limit-break/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Limit Break: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/limit-break/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
